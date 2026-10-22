@@ -11,7 +11,7 @@
 
     const { onnext, onskip }: Props = $props();
 
-    let worldName: string = gameManager.getCurrentGameScene()?.room?.roomName ?? "WorkAdventure";
+    let worldName: string = gameManager.getCurrentGameScene()?.room?.roomName ?? "Hyperlabs Office";
 
     function handleNext() {
         onnext?.();

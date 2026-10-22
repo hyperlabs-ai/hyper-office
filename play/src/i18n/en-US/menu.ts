@@ -56,8 +56,8 @@ const menu: BaseTranslation = {
             echoCancellation: "Echo cancellation",
             enableAdvancedNoiseReduction: "Enable advanced noise reduction",
             noiseSuppressionMode: "Noise suppression mode:",
-            workAdventureNoiseSuppression: "WorkAdventure noise suppression",
-            workAdventureNoiseSuppressionDescription: "Process your microphone with WorkAdventure's noise suppression.",
+            workAdventureNoiseSuppression: "Hyperlabs Office noise suppression",
+            workAdventureNoiseSuppressionDescription: "Process your microphone with Hyperlabs Office's noise suppression.",
             recommended: "Recommended",
             browserNoiseSuppression: "Browser noise suppression",
             browserNoiseSuppressionDescription: "Use your browser's built-in noise suppression.",
@@ -73,7 +73,7 @@ const menu: BaseTranslation = {
         privacySettings: {
             title: "Away mode",
             explanation:
-                'When you switch to another window or tab, WorkAdventure switches to "away mode", except during a conversation or a broadcast.',
+                'When you switch to another window or tab, Hyperlabs Office switches to "away mode", except during a conversation or a broadcast.',
             cameraToggle: 'Keep camera active in "away mode"',
             microphoneToggle: 'Keep microphone active in "away mode"',
         },
@@ -122,7 +122,7 @@ const menu: BaseTranslation = {
         gettingStarted: {
             title: "Getting started",
             description:
-                "WorkAdventure allows you to create an online space to communicate spontaneously with others. And it all starts with creating your own space. Choose from a large selection of prefabricated maps by our team.",
+                "Hyperlabs Office allows you to create an online space to communicate spontaneously with others. And it all starts with creating your own space. Choose from a large selection of prefabricated maps by our team.",
         },
         createMap: {
             title: "Create your map",

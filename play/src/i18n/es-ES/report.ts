@@ -76,8 +76,8 @@ const report: DeepPartial<Translation["report"]> = {
     },
     banned: {
         title: "BANEADO",
-        subtitle: "Has sido baneado de WorkAdventure",
-        details: "Si quieres más información, puedes contactarnos en: hello@workadventu.re",
+        subtitle: "Has sido baneado de Hyperlabs Office",
+        details: "Si quieres más información, contacta al administrador.",
     },
     reasonGiven: "Motivo: {reason}",
 };

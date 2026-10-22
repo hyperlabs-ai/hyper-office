@@ -33,7 +33,7 @@ const externalModule: BaseTranslation = {
     discord: {
         integration: "INTEGRATION",
         explainText:
-            "By connecting your discord account here, you will be able to receive your messages directly in the workadventure chat. After synchronizing a server, we will create the rooms it contains, you will only have to join them in the Workadventure chat.",
+            "By connecting your discord account here, you will be able to receive your messages directly in the Hyperlabs Office chat. After synchronizing a server, we will create the rooms it contains, you will only have to join them in the Hyperlabs Office chat.",
         login: "Connect to Discord",
         fetchingServer: "Get your Discord servers... 👀",
         qrCodeTitle: "Scan the QR code with your Discord app to login.",
@@ -53,13 +53,13 @@ const externalModule: BaseTranslation = {
         tokenPlaceholder: "Your Discord Token",
         loginWithQrCode: "Login with QR Code",
         guilds: "Discord servers",
-        guildExplain: "Select channels you want to add to Workadventure chat interface.\n",
+        guildExplain: "Select channels you want to add to the Hyperlabs Office chat interface.\n",
     },
     outlook: {
         signIn: "Sign in with Outlook",
         popupScopeToSync: "Connect my Outlook Account",
         popupScopeToSyncExplainText:
-            "We need to connect to your Outlook account to synchronize your calendar and/or tasks. This will allow you to view your meetings and tasks in WorkAdventure and join them directly from the map.",
+            "We need to connect to your Outlook account to synchronize your calendar and/or tasks. This will allow you to view your meetings and tasks in Hyperlabs Office and join them directly from the map.",
         popupScopeToSyncCalendar: "Synchronize my calendar",
         popupScopeToSyncTask: "Synchronize my tasks",
         popupCancel: "Cancel",
@@ -81,7 +81,7 @@ const externalModule: BaseTranslation = {
         signIn: "Sign in with Google",
         popupScopeToSync: "Connect my Google Account",
         popupScopeToSyncExplainText:
-            "We need to connect to your Google account to synchronize your calendar and/or tasks. This will allow you to view your meetings and tasks in WorkAdventure and join them directly from the map.",
+            "We need to connect to your Google account to synchronize your calendar and/or tasks. This will allow you to view your meetings and tasks in Hyperlabs Office and join them directly from the map.",
         popupScopeToSyncCalendar: "Synchronize my calendar",
         popupScopeToSyncTask: "Synchronize my tasks",
         popupCancel: "Cancel",
@@ -109,7 +109,7 @@ const externalModule: BaseTranslation = {
     calendar: {
         title: "Your upcoming meetings",
         joinMeeting: "Click here to join the meeting",
-        joinMeetingInWorkAdventure: "Click here to join the meeting in WorkAdventure",
+        joinMeetingInWorkAdventure: "Click here to join the meeting in Hyperlabs Office",
         allDay: "All day",
         nextMeeting: "Next meeting",
         inProgress: "In progress",

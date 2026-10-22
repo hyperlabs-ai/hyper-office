@@ -1,0 +1,35 @@
+/*
+ * Hyperlabs Office brand palette.
+ *
+ * Overrides the `secondary` (accent) and `contrast` (dark surfaces) scales of `@workadventure/design-system`,
+ * using the same HSL-triplet format. This block is intentionally unlayered so it wins over the design-system
+ * `@layer theme` defaults, the same way the Admin API `primaryColor` / `backgroundColor` override does.
+ *
+ * Accent: #383FF2 (Hyperlabs "prim"). Dark surfaces: #1C1F30 (Hyperlabs gray 800).
+ * The shades keep the lightness curve of the original scales, shifted to the Hyperlabs hues.
+ */
+:root {
+    --secondary-100: 234 73% 97%;
+    --secondary-200: 237 76% 90%;
+    --secondary-300: 237 61% 83%;
+    --secondary-400: 237 54% 73%;
+    --secondary-500: 237 66% 67%;
+    --secondary-600: 238 88% 67%;
+    --secondary: 238 88% 58%;
+    --secondary-800: 238 76% 52%;
+    --secondary-900: 238 65% 46%;
+    --secondary-1000: 238 75% 38%;
+    --secondary-1100: 239 80% 32%;
+
+    --contrast-100: 229 33% 88%;
+    --contrast-200: 230 22% 76%;
+    --contrast-300: 230 20% 65%;
+    --contrast-400: 230 15% 40%;
+    --contrast-500: 230 16% 36%;
+    --contrast-600: 230 19% 28%;
+    --contrast: 231 26% 15%;
+    --contrast-800: 231 26% 15%;
+    --contrast-900: 234 32% 11%;
+    --contrast-1000: 236 36% 8%;
+    --contrast-1100: 233 43% 5%;
+}

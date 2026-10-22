@@ -150,7 +150,7 @@
 
         const config: Phaser.Types.Core.GameConfig = {
             type: mode,
-            title: "WorkAdventure",
+            title: "Hyperlabs Office",
             scale: {
                 parent: gameDiv,
                 width: gameSize.width,
@@ -207,7 +207,7 @@
                     }
                 },
             },
-            backgroundColor: "#1b2a41",
+            backgroundColor: "#1c1f30",
         };
 
         game = new Game(config);

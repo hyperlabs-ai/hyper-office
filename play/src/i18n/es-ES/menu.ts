@@ -57,9 +57,9 @@ const menu: DeepPartial<Translation["menu"]> = {
             echoCancellation: "Cancelación de eco",
             enableAdvancedNoiseReduction: "Activar reducción de ruido avanzada",
             noiseSuppressionMode: "Modo de supresión de ruido:",
-            workAdventureNoiseSuppression: "Supresión de ruido de WorkAdventure",
+            workAdventureNoiseSuppression: "Supresión de ruido de Hyperlabs Office",
             workAdventureNoiseSuppressionDescription:
-                "Procesa tu micrófono con la supresión de ruido de WorkAdventure.",
+                "Procesa tu micrófono con la supresión de ruido de Hyperlabs Office.",
             recommended: "Recomendado",
             browserNoiseSuppression: "Supresión de ruido del navegador",
             browserNoiseSuppressionDescription: "Usa la supresión de ruido integrada en tu navegador.",
@@ -76,7 +76,7 @@ const menu: DeepPartial<Translation["menu"]> = {
         privacySettings: {
             title: "Modo no presente",
             explanation:
-                'Al cambiar a otra ventana o pestaña, WorkAdventure pasa a "modo no presente", salvo durante una conversación o una transmisión.',
+                'Al cambiar a otra ventana o pestaña, Hyperlabs Office pasa a "modo no presente", salvo durante una conversación o una transmisión.',
             cameraToggle: 'Mantener la cámara activa en "modo no presente"',
             microphoneToggle: 'Mantener el micrófono activa en "modo no presente"',
         },
@@ -125,7 +125,7 @@ const menu: DeepPartial<Translation["menu"]> = {
         gettingStarted: {
             title: "Empezar",
             description:
-                "WorkAdventure le permite crear un espacio en línea para comunicarse espontáneamente con otros. Y todo empieza creando su propio espacio. Escoja de una gran selección de mapas prefabricados por nuestro equipo.",
+                "Hyperlabs Office le permite crear un espacio en línea para comunicarse espontáneamente con otros. Y todo empieza creando su propio espacio. Escoja de una gran selección de mapas prefabricados por nuestro equipo.",
         },
         createMap: {
             title: "Crear su mapa",

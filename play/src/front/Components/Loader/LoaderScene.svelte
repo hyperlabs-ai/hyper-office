@@ -3,12 +3,12 @@
     import { loaderProgressStore } from "../../Stores/LoaderStore";
     import { gameManager } from "../../Phaser/Game/GameManager";
     import bgMap from "../images/map-exemple.webp";
-    import defaultLoader from "../images/Workadventure.gif";
+    import defaultLoader from "../images/logo.svg";
 
     const logo = gameManager.currentStartedRoom.loadingLogo ?? defaultLoader;
     const sceneBg = gameManager.currentStartedRoom.backgroundSceneImage ?? bgMap;
-    const bgColor = gameManager.currentStartedRoom.backgroundColor ?? "#1B2A41";
-    const primary = gameManager.currentStartedRoom.primaryColor ?? "#4056F6";
+    const bgColor = gameManager.currentStartedRoom.backgroundColor ?? "#1C1F30";
+    const primary = gameManager.currentStartedRoom.primaryColor ?? "#383FF2";
 </script>
 
 <div

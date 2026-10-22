@@ -74,8 +74,8 @@ const report: BaseTranslation = {
     },
     banned: {
         title: "BANNED",
-        subtitle: "You were banned from WorkAdventure",
-        details: "If you want more information, you may contact us at: hello@workadventu.re",
+        subtitle: "You were banned from Hyperlabs Office",
+        details: "If you want more information, please contact your administrator.",
     },
     reasonGiven: "Reason: {reason}",
 };

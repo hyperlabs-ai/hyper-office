@@ -210,7 +210,7 @@ export class FrontController extends BaseHttpController {
     private async displayFront(req: Request, res: Response, url: string) {
         const template = this.frontAssets.getIndexTemplate();
         if (template === undefined) {
-            res.status(503).set("Retry-After", "2").send("WorkAdventure is starting, please retry in a few seconds.");
+            res.status(503).set("Retry-After", "2").send("Hyperlabs Office is starting, please retry in a few seconds.");
             return;
         }
         const builder = new MetaTagsBuilder(url);

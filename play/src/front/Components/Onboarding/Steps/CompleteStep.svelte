@@ -10,7 +10,7 @@
 
     const { onnext }: Props = $props();
 
-    const worldName = gameManager.getCurrentGameScene()?.room?.roomName ?? "WorkAdventure";
+    const worldName = gameManager.getCurrentGameScene()?.room?.roomName ?? "Hyperlabs Office";
 
     function handleNext() {
         onnext?.();

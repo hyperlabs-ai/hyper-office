@@ -302,7 +302,7 @@ export class IoSocketController {
                                 image: "/resources/icons/new_version.png",
                                 imageLogo: "/static/images/logo.png",
                                 code: "NEW_VERSION",
-                                details: "A new version of WorkAdventure is available. Please refresh your window",
+                                details: "A new version of Hyperlabs Office is available. Please refresh your window",
                                 canRetryManual: true,
                                 buttonTitle: "Refresh",
                                 timeToRetry: 999999,
