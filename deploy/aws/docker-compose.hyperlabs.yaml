@@ -1,0 +1,36 @@
+# Hyperlabs Office: branded play image (from ECR) + Coturn on the same host.
+# Installed as /opt/hyper-office/docker-compose.override.yaml (Compose loads it automatically), next to an unmodified copy of
+# contrib/docker/docker-compose.prod.yaml. Every ${...} value comes from /opt/hyper-office/.env (never committed).
+services:
+  play:
+    image: ${PLAY_IMAGE}:${PLAY_IMAGE_TAG}
+
+  coturn:
+    image: coturn/coturn:4.7.0
+    network_mode: host
+    restart: ${RESTART_POLICY}
+    command:
+      - -n
+      - --log-file=stdout
+      - --no-cli
+      - --fingerprint
+      - --use-auth-secret
+      - --static-auth-secret=${TURN_STATIC_AUTH_SECRET}
+      - --realm=${DOMAIN}
+      - --listening-port=3478
+      - --min-port=49160
+      - --max-port=49200
+      - --listening-ip=${TURN_PRIVATE_IP}
+      - --relay-ip=${TURN_PRIVATE_IP}
+      - --external-ip=${TURN_PUBLIC_IP}/${TURN_PRIVATE_IP}
+      - --no-tls
+      - --no-dtls
+      - --no-multicast-peers
+      # Never relay to private, loopback or link-local ranges (protects the EC2 metadata endpoint)
+      - --denied-peer-ip=0.0.0.0-0.255.255.255
+      - --denied-peer-ip=10.0.0.0-10.255.255.255
+      - --denied-peer-ip=100.64.0.0-100.127.255.255
+      - --denied-peer-ip=127.0.0.0-127.255.255.255
+      - --denied-peer-ip=169.254.0.0-169.254.255.255
+      - --denied-peer-ip=172.16.0.0-172.31.255.255
+      - --denied-peer-ip=192.168.0.0-192.168.255.255
