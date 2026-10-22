@@ -57,7 +57,8 @@ const menu: BaseTranslation = {
             enableAdvancedNoiseReduction: "Enable advanced noise reduction",
             noiseSuppressionMode: "Noise suppression mode:",
             workAdventureNoiseSuppression: "Hyperlabs Office noise suppression",
-            workAdventureNoiseSuppressionDescription: "Process your microphone with Hyperlabs Office's noise suppression.",
+            workAdventureNoiseSuppressionDescription:
+                "Process your microphone with Hyperlabs Office's noise suppression.",
             recommended: "Recommended",
             browserNoiseSuppression: "Browser noise suppression",
             browserNoiseSuppressionDescription: "Use your browser's built-in noise suppression.",

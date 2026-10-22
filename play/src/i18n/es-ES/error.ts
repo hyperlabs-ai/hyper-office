@@ -5,14 +5,12 @@ const error: DeepPartial<Translation["error"]> = {
     accessLink: {
         title: "Enlace de acceso incorrecto",
         subTitle: "No se encontró el mapa. Por favor, revise su enlace de acceso.",
-        details:
-            "Si quiere más información, puede contactar con el administrador.",
+        details: "Si quiere más información, puede contactar con el administrador.",
     },
     connectionRejected: {
         title: "Conexión rechazada",
         subTitle: "No puede unirse al Mundo. Inténtelo de nuevo más tarde {error}.",
-        details:
-            "Si quiere más información, puede contactar con el administrador.",
+        details: "Si quiere más información, puede contactar con el administrador.",
     },
     connectionRetry: {
         unableConnect: "Se perdió la conexión con el servidor. No podrás hablar con los demás.",

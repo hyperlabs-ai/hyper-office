@@ -36,7 +36,8 @@ const warning: BaseTranslation = {
     browserNotSupported: {
         title: "😢 Browser Not Supported",
         message: "Your browser ({browserName}) is no longer supported by Hyperlabs Office.",
-        description: "Your browser is too old to run Hyperlabs Office. Please update to the latest version to continue.",
+        description:
+            "Your browser is too old to run Hyperlabs Office. Please update to the latest version to continue.",
         whatToDo: "What can you do?",
         option1: "Update {browserName} to the latest version",
         option2: "Leave Hyperlabs Office and use a different browser",
