@@ -62,7 +62,7 @@ flowchart LR
 | Deploy | `.github/workflows/hyperlabs-deploy.yml` | Corre en cada push a `main` que toque `play/`, `libs/` o `messages/`. También se puede lanzar a mano desde Actions con **Run workflow**. |
 | Build | Runner `ubuntu-24.04-arm` de GitHub | Construye `play/Dockerfile` para arm64, la misma arquitectura que la EC2 Graviton. Gratis en repos públicos. |
 | Registro | Amazon ECR `hyper-office/play` (mx-central-1) | Una imagen por commit, etiquetada con el SHA corto. Guarda las últimas 10. |
-| Credenciales | OIDC de GitHub → rol IAM `gha-hyper-office-deploy` | **No hay llaves de AWS en GitHub.** El rol solo lo puede asumir la rama `main` o el environment `production` de este repo. Solo puede subir a ese repo de ECR y mandar comandos a esa instancia. |
+| Credenciales | OIDC de GitHub → rol IAM `gha-hyper-office-deploy` | **No hay llaves de AWS en GitHub.** El rol solo lo puede asumir la rama `main` o el environment `production` de este repo (ver sección 7: el repo usa *immutable subject claims*). Solo puede subir a ese repo de ECR y mandar comandos a esa instancia. |
 | Deploy en el servidor | SSM Run Command → `/opt/hyper-office/deploy.sh <sha>` | Hace pull de la imagen, `docker compose up -d play` y espera *healthy*. **Si no queda healthy, regresa al tag anterior** y el job falla. Conserva las últimas 3 imágenes para rollback. Fuente: `deploy/aws/deploy.sh`. |
 | Smoke test | Último paso del job | Verifica que `https://office.hyperhub.mx` responda con `<title>Hyperlabs Office</title>`. |
 
@@ -193,7 +193,8 @@ Los archivos de imagen conservan los nombres originales de WorkAdventure a prop�
   - ECR `hyper-office/play`, con lifecycle que conserva 10 imágenes.
   - IAM OIDC provider `token.actions.githubusercontent.com`.
   - Rol `gha-hyper-office-deploy`:
-    - Trust: `repo:hyperlabs-ai/hyper-office:ref:refs/heads/main` y `repo:hyperlabs-ai/hyper-office:environment:production`.
+    - Trust: `repo:hyperlabs-ai@182542172/hyper-office@1430189588:ref:refs/heads/main` y `repo:hyperlabs-ai@182542172/hyper-office@1430189588:environment:production`.
+    - Este repo usa **immutable subject claims** (GitHub los activa en repos creados o renombrados después del 15 de julio de 2026): el `sub` lleva los IDs de la organización y del repo. El prefijo exacto está en *Settings → Actions → OIDC*. Si se renombra o se transfiere el repo, hay que revisar esta trust policy.
     - Permisos: push a ese repo de ECR, `ssm:SendCommand` sobre la instancia y `AWS-RunShellScript`, `ssm:GetCommandInvocation`, `ec2:DescribeInstances`.
   - Instance profile `hyper-office-ec2` con `AmazonSSMManagedInstanceCore` y `AmazonEC2ContainerRegistryReadOnly`, asociado a la EC2.
 - **Servidor:** `amazon-ecr-credential-helper` instalado y configurado en `/root/.docker/config.json`; `deploy.sh`; override con `image: ${PLAY_IMAGE}:${PLAY_IMAGE_TAG}`; `PLAY_IMAGE` en el `.env`.
@@ -202,3 +203,15 @@ Los archivos de imagen conservan los nombres originales de WorkAdventure a prop�
   - Variable de repo `AWS_DEPLOY_ROLE_ARN`.
   - Environment `production`.
   - `main` como rama por defecto, con branch protection.
+
+---
+
+## 8. Diagnóstico rápido
+
+| Síntoma | Causa / solución |
+|---|---|
+| `Could not assume role with OIDC: Not authorized to perform sts:AssumeRoleWithWebIdentity` | El `sub` del token no coincide con la trust policy del rol. Compara el prefijo de *Settings → Actions → OIDC* con la trust policy (sección 7). |
+| Un merge a `main` no lanzó el deploy | El commit no tocó `play/`, `libs/` ni `messages/` (filtro `paths`), o el push no trajo commits nuevos. Lánzalo a mano: *Actions → Hyperlabs deploy (AWS) → Run workflow*. |
+| El paso SSM falla con `InvalidInstanceId` | La EC2 no está registrada en Systems Manager. Revisa que tenga el instance profile `hyper-office-ec2` y que aparezca *Online* en *Fleet Manager*; si no, corre `sudo snap restart amazon-ssm-agent` en el servidor. |
+| En el log del agente de SSM sale `GetMessages Error: send request failed` | Es ruido: en mx-central-1 no existe el endpoint `ec2messages`, y el agente usa `ssmmessages` sin problema. |
+| El deploy falla con `play ... did not become healthy` | La imagen nueva no arrancó, y `deploy.sh` ya regresó a la anterior. Revisa los logs con `sudo docker compose logs --tail 100 play`. |
